@@ -64,7 +64,7 @@ def wait_for_classname(name):
 
 def process():
     global driver
-    adhyatm_index = 0;
+    seller_index = 0;
 
     put_pin()
     print(" Clicking VIEW MORE SELLERS")
@@ -79,13 +79,13 @@ def process():
     deliveryDateDivs = [get_text(div) for div in page_source.find_all("div", class_="_29Zp1s")]
     ratingDivs = [get_text(div) for div in page_source.find_all("div", class_="hGSR34")] [1:]
 
-    adhyatm_index = nameDivs.index('ADHYATM')
+    seller_index = nameDivs.index('ADHYATM')
 
-    if adhyatm_index > 1 :
-        nameDivs = itemgetter(0,1,adhyatm_index)(nameDivs)
-        priceDivs = itemgetter(0,1,adhyatm_index)(priceDivs)
-        deliveryDateDivs = itemgetter(0,1,adhyatm_index)(deliveryDateDivs)
-        ratingDivs = itemgetter(0,1,adhyatm_index)(ratingDivs)
+    if seller_index > 1 :
+        nameDivs = itemgetter(0,1,seller_index)(nameDivs)
+        priceDivs = itemgetter(0,1,seller_index)(priceDivs)
+        deliveryDateDivs = itemgetter(0,1,seller_index)(deliveryDateDivs)
+        ratingDivs = itemgetter(0,1,seller_index)(ratingDivs)
 
     else:
         nameDivs = nameDivs[:2]
